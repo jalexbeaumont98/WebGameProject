@@ -4,7 +4,8 @@ public enum SoundType
 {
     None,
     Gunshot,
-    Run,
+    Move,
+    Dash,
     Jump,
     Explosion,
 }
