@@ -12,7 +12,7 @@ public class PlayerSFXController : MonoBehaviour
     {
         if (playerInput == null) playerInput = GetComponentInParent<PlayerInput>();
         fireAction = playerInput.actions["Attack"];
-        moveAction = playerInput.actions["Rolling/Move"];
+        moveAction = playerInput.actions["Move"];
     }
 
     private void OnEnable()
