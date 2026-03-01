@@ -9,7 +9,6 @@ public class EnemyAI : MonoBehaviour
 
     [Header("Refs")]
     [SerializeField] private Transform player;
-    [SerializeField] private Transform aimTarget;
     [SerializeField] private Transform muzzle;
     [SerializeField] private Rigidbody projectilePrefab;
 
@@ -186,9 +185,9 @@ public class EnemyAI : MonoBehaviour
 
     private void FireAtPlayer()
     {
-        if (projectilePrefab == null || muzzle == null || aimTarget == null) return;
+        if (projectilePrefab == null || muzzle == null) return;
 
-        Vector3 aimPoint = aimTarget.position;
+        Vector3 aimPoint = player.position + Vector3.up * 1.0f;
         Vector3 dir = (aimPoint - muzzle.position).normalized;
 
         print("Shoot maybe?");
