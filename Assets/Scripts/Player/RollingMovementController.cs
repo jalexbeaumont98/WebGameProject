@@ -93,8 +93,18 @@ public class RollingMovementController : MonoBehaviour
             rb.AddForce(-camForward * acceleration * surfaceMult, ForceMode.Acceleration);
         }
 
+        
+
         Vector3 v = rb.linearVelocity;
         Vector3 planar = new Vector3(v.x, 0f, v.z);
+
+        if (modeController.GroundCheck.IsGrounded && modeController.GroundCheck.collisionRaycast.collider.TryGetComponent(out Rigidbody platformRb))
+        {
+            Vector3 platformVel = platformRb.linearVelocity;
+            planar += new Vector3(platformVel.x, 0f, platformVel.z);
+        }
+
+        
         if (planar.magnitude > maxSpeed)
         {
             Vector3 clamped = planar.normalized * maxSpeed;

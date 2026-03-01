@@ -156,3 +156,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerProjectile
   lifeTime: 5
+  targetTag: Enemy
+  damage: 1
