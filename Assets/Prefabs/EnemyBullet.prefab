@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3491899372458764435}
   - component: {fileID: 4727595804084343519}
   - component: {fileID: 2145049608037193883}
-  - component: {fileID: 8609615448279223928}
+  - component: {fileID: 3010320960871788954}
   m_Layer: 10
   m_Name: EnemyBullet
   m_TagString: Untagged
@@ -143,16 +143,16 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!114 &8609615448279223928
+--- !u!114 &3010320960871788954
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7309750725288579170}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f949bab1504eb7448ec90e5be6119db, type: 3}
+  m_Script: {fileID: 11500000, guid: 69a6b385979c32e48b102f531871d5a0, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerProjectile
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyProjectile
   lifeTime: 5

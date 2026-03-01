@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerGroundCheck : MonoBehaviour
@@ -7,15 +8,22 @@ public class PlayerGroundCheck : MonoBehaviour
 
     public bool IsGrounded { get; private set; }
 
+    public RaycastHit GroundCollider { get; private set; }
+
     private void Update()
     {
+        RaycastHit hit;
+
         IsGrounded = Physics.Raycast(
             transform.position,
             Vector3.down,
+            out hit,
             checkDistance,
             groundMask,
             QueryTriggerInteraction.Ignore
         );
+
+        GroundCollider = hit;
 
         //print(IsGrounded);
     }

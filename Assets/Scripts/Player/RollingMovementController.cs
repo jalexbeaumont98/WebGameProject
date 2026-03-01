@@ -20,7 +20,7 @@ public class RollingMovementController : MonoBehaviour
 
     public void InitializeM(Rigidbody rb)
     {
-        this.rb = rb; 
+        this.rb = rb;
     }
 
     void Awake()
@@ -93,8 +93,18 @@ public class RollingMovementController : MonoBehaviour
             rb.AddForce(-camForward * acceleration * surfaceMult, ForceMode.Acceleration);
         }
 
+        Vector3 platformVel = Vector3.zero;
+
+        if (modeController.GroundCheck.IsGrounded && modeController.GroundCheck.GroundCollider.collider.TryGetComponent(out MovingPlatform platform))
+        {
+            platformVel = platform.GetPlatformVelocity();
+        }
+
         Vector3 v = rb.linearVelocity;
         Vector3 planar = new Vector3(v.x, 0f, v.z);
+
+        planar += new Vector3(platformVel.x, 0f, platformVel.z);
+        
         if (planar.magnitude > maxSpeed)
         {
             Vector3 clamped = planar.normalized * maxSpeed;

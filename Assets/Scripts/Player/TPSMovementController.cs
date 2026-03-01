@@ -89,7 +89,16 @@ public class TPSMovementController : MonoBehaviour
         float control = grounded ? 1f : airControlMultiplier;
 
         Vector3 targetPlanarVel = desiredDir * moveSpeed;
-        Vector3 velDelta = (targetPlanarVel - planar);
+        Vector3 velDelta = targetPlanarVel - planar;
+
+        Vector3 platformVel = Vector3.zero;
+
+        if (modeController.GroundCheck.IsGrounded && modeController.GroundCheck.GroundCollider.collider.TryGetComponent(out MovingPlatform platform))
+        {
+            platformVel = platform.GetPlatformVelocity();
+        }
+
+        velDelta += new Vector3(platformVel.x, 0f, platformVel.z);
 
         // Convert velocity delta to an acceleration force
         Vector3 accelForce = velDelta * (acceleration * control);
