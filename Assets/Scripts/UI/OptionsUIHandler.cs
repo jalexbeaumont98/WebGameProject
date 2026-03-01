@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class OptionsUIHandler : MonoBehaviour
 {
@@ -10,21 +11,24 @@ public class OptionsUIHandler : MonoBehaviour
 
     [SerializeField] private float defaultMusicVolume = 0.5f;
     [SerializeField] private float defaultSFXVolume = 0.7f;
+    [SerializeField] private float defaultMouseSens = 120f;
 
     void Start()
     {
         ResetAudioSlidersToDefault();
-    //    SetVolume(PlayerPrefs.GetFloat("SavedMusicVolume", 90));
     }
 
-    // public void SetVolume(float volume)
-    // {
-        // if (volume < 0.0015) volume = defaultVolume;
+    [SerializeField] private string nextSceneName;
 
-        // ResetMusicSlider(volume);
-        // PlayerPrefs.SetFloat("SavedMusicVolume", volume);
-        // audioMixer.SetFloat("MasterVolume", Mathf.Log10(volume/100) *20f);
-    // }
+    public void OnBackButtonClicked()
+    {
+        SceneManager.LoadScene(nextSceneName);
+    }
+
+    public void ResetDefaults()
+    {
+        ResetAudioSlidersToDefault();
+    }
 
     public void ResetAudioSlidersToDefault()
     {
