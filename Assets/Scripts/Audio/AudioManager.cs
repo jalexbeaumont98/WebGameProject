@@ -48,7 +48,7 @@ public class AudioManager : MonoBehaviour
         if (!soundLibraryLookup.TryGetValue(soundType, out AudioClip audioClip) || audioClip == null) return;
         if (SFXSource.isPlaying && SFXSource.clip == audioClip) return;
 
-        SFXSource.volume = volume;
+        // SFXSource.volume = volume;
         SFXSource.clip = audioClip;
         SFXSource.Play();
     }
@@ -72,6 +72,6 @@ public class AudioManager : MonoBehaviour
         if (soundType == SoundType.None) return;
         if (!soundLibraryLookup.TryGetValue(soundType, out AudioClip audioClip) || audioClip == null) return;
 
-        SFXSourceOneShot.PlayOneShot(audioClip, volume);
+        SFXSourceOneShot.PlayOneShot(audioClip);
     }
 }
