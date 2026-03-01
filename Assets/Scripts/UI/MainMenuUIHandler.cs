@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class MainMenuUIHandler : MonoBehaviour
 {
     [SerializeField] private string StartSceneName;
+    [SerializeField] private string OptionsSceneName;
 
     public void OnStartButtonClicked()
     {
@@ -12,12 +13,12 @@ public class MainMenuUIHandler : MonoBehaviour
 
     public void OnContinueButtonClicked()
     {
-        Debug.Log("To be implemented...");
+        Debug.Log("To be implemented in next iteration");
     }
 
     public void OnOptionsButtonClicked()
     {
-        Debug.Log("To be implemented...");
+        SceneManager.LoadScene(OptionsSceneName);
     }
 
     public void OnQuitGameButtonClicked()
