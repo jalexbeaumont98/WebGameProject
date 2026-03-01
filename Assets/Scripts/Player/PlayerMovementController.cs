@@ -4,10 +4,6 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovementController : MonoBehaviour
 {
-
-    //THIS SCRIPT IS OLD AND NO LONGER IN USE
-
-
     [Header("Input")]
     [SerializeField] private InputActionReference moveAction; // Vector2: x=steer, y=throttle
 
@@ -59,8 +55,6 @@ public class PlayerMovementController : MonoBehaviour
 
     void FixedUpdate()
     {
-
-        return;
         float steer = moveInput.x;     // A/D
         float throttle = moveInput.y;  // W/S
 

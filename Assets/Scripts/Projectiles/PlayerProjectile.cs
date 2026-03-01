@@ -11,19 +11,7 @@ public class PlayerProjectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-
-        if (collision.transform.tag == "Enemy")
-        {
-            IDamageable damageable = collision.collider.GetComponentInParent<IDamageable>();
-
-            if (damageable != null)
-            {
-                Vector3 hitPoint = collision.contacts[0].point;
-
-                damageable.TakeDamage(1f, hitPoint);
-            }
-        }
-
+        // TODO: damage logic later
         Destroy(gameObject);
     }
 }
