@@ -76,4 +76,10 @@ public class PlayerCameraController : MonoBehaviour
     {
         allowPitch = input;
     }
+
+    public void SetSensitivity(float orbitSense, float pitchSense)
+    {
+        orbitSensitivity = orbitSense;
+        pitchSensitivity = pitchSense;
+    }
 }
