@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerProjectile : MonoBehaviour
+public class EnemyProjectile : MonoBehaviour
 {
     [SerializeField] private float lifeTime = 5f;
 
@@ -12,7 +12,7 @@ public class PlayerProjectile : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
 
-        if (collision.transform.tag == "Enemy")
+        if (collision.transform.tag == "Player")
         {
             IDamageable damageable = collision.collider.GetComponentInParent<IDamageable>();
 

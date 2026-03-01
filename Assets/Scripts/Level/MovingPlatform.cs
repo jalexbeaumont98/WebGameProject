@@ -75,5 +75,12 @@ public class MovingPlatform : MonoBehaviour
         {
             waypoints[i] = root.GetChild(i);
         }
+
+        
+    }
+
+    public Vector3 GetPlatformVelocity()
+    {
+        return rb.linearVelocity;
     }
 }
