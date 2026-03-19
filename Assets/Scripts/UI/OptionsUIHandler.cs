@@ -11,7 +11,7 @@ public class OptionsUIHandler : MonoBehaviour
 
     [SerializeField] private float defaultMusicVolume = 0.5f;
     [SerializeField] private float defaultSFXVolume = 0.7f;
-    [SerializeField] private float defaultMouseSens = 120f;
+    // [SerializeField] private float defaultMouseSens = 120f;
 
     void Start()
     {

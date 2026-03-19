@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -6,7 +7,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Game Options/Settings")] 
     public float MouseSensitivity = 120f;
-    // Reset settings at the start of each game.
+    // Reset settings at the start of each game? 
 
     private void Awake()
     {
@@ -15,7 +16,13 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-            Instance = this;
+        Instance = this;
     }
 
+
+    public void LoadDeathSequence()
+    {
+        // Will move this later
+        SceneManager.LoadScene("GameOver");
+    }
 }
