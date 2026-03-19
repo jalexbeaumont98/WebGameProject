@@ -7,6 +7,6 @@ public class Hazard : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         IDamageable player = collision.gameObject.GetComponent<IDamageable>();
-        player.TakeDamage(damageAmount, new Vector3(), new Vector3());
+        player?.TakeDamage(damageAmount, new Vector3(), new Vector3());
     }
 }

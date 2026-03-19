@@ -3736,7 +3736,7 @@ GameObject:
   - component: {fileID: 660244678}
   - component: {fileID: 660244679}
   m_Layer: 0
-  m_Name: Spike_Hazard
+  m_Name: SpikePit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3762,9 +3762,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5000001
-  m_Height: 2
+  m_Height: 10.000002
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000011920929}
 --- !u!23 &660244675
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3830,12 +3830,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 660244673}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.17323, y: 2.24, z: 11.484}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
-  m_ConstrainProportionsScale: 1
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.266, y: 2.239, z: 11.484}
+  m_LocalScale: {x: 2, y: 0.2, z: 2}
+  m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1432270011}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &660244678
 MonoBehaviour:
@@ -3858,7 +3858,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 660244673}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 10000
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -4836,11 +4836,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 845154801}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03f91e131ef08568db7ed29d162a0ad0, type: 3}
+  m_Script: {fileID: 11500000, guid: 55ab1c71cbf81a186980f26ae443b021, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FlashDamangeFX
+  m_EditorClassIdentifier: Assembly-CSharp::FlashDamageFX
   meshRenderer: {fileID: 845154805}
-  damageColour: {r: 1, g: 0, b: 0, a: 1}
+  flashDamageMaterial: {fileID: 2100000, guid: 287d369ce5a05fc1682d0907bf5166f8, type: 2}
   duration: 0.2
 --- !u!1 &889591836
 GameObject:
@@ -6466,6 +6466,7 @@ Transform:
   m_Children:
   - {fileID: 222626947}
   - {fileID: 195212858}
+  - {fileID: 660244677}
   m_Father: {fileID: 1374862659}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1434376972
@@ -11705,4 +11706,3 @@ SceneRoots:
   - {fileID: 522053031}
   - {fileID: 1637601001}
   - {fileID: 1668370531}
-  - {fileID: 660244677}
