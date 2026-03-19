@@ -2987,6 +2987,7 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: 4b0e150cb7211b2b6850ace961da3e62, type: 2}
   defaultMusicVolume: 0.5
   defaultSFXVolume: 0.7
+  defaultMouseSens: 120
   nextSceneName: MainMenu
 --- !u!4 &1580021930
 Transform:

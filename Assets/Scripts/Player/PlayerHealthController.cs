@@ -14,8 +14,6 @@ public class PlayerHealthController : MonoBehaviour, IDamageable
     {
         currentHealth -= amount;
 
-        Debug.Log("Player took damage: " + amount);
-
         if (currentHealth <= 0f)
         {
             Die();
@@ -24,6 +22,7 @@ public class PlayerHealthController : MonoBehaviour, IDamageable
 
     private void Die()
     {
-        Debug.Log("Player Died");
+        GameManager.Instance.LoadDeathSequence();
     }
+
 }
