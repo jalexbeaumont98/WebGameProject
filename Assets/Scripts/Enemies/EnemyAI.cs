@@ -48,6 +48,8 @@ public class EnemyAI : MonoBehaviour
         // Critical for "agent path + rb movement" approach
         agent.updatePosition = false;
         agent.updateRotation = false;
+
+        aimTarget = FindFirstObjectByType<PlayerHealthController>().transform;
     }
 
     private void Start()

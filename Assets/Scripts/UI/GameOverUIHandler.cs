@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,6 +6,12 @@ public class GameOverUIHandler : MonoBehaviour
 {
     [SerializeField] private string StartSceneName;
     [SerializeField] private string MainMenuSceneName;
+
+    void Awake()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
 
     public void OnNewGameButtonClicked()
     {
