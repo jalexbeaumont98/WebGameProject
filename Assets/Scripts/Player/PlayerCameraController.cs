@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerCameraController : MonoBehaviour
 {
-     [SerializeField] private Transform target;
+    [SerializeField] private Transform target;
     [SerializeField] private float orbitSensitivity = 120f;
     [SerializeField] private float pitchSensitivity = 120f;
     [SerializeField] private float pitch = 20f; // fixed downward tilt
@@ -39,7 +39,44 @@ public class PlayerCameraController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        
+
+    }
+
+    public CameraSaveData GetCameraSaveData()
+    {
+        return new CameraSaveData
+        {
+            yaw = yaw,
+            currentPitch = currentPitch,
+            distance = distance,
+            height = height
+        };
+    }
+
+    public void SetCameraSaveData(CameraSaveData data)
+    {
+        if (data == null)
+            return;
+
+        yaw = data.yaw;
+        currentPitch = data.currentPitch;
+        distance = data.distance;
+        height = data.height;
+
+        ApplySavedCameraState();
+    }
+
+    private void ApplySavedCameraState()
+    {
+        if (target == null)
+            return;
+
+        Quaternion rotation = Quaternion.Euler(currentPitch, yaw, 0f);
+        Vector3 offset = rotation * new Vector3(0f, 0f, -distance);
+        Vector3 desiredPosition = target.position + Vector3.up * height + offset;
+
+        transform.position = desiredPosition;
+        transform.rotation = rotation;
     }
 
     void Update()
@@ -61,7 +98,7 @@ public class PlayerCameraController : MonoBehaviour
         {
             currentPitch = pitch;
 
-        } 
+        }
 
         Quaternion rotation = Quaternion.Euler(currentPitch, yaw, 0f);
 

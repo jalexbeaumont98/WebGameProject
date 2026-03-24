@@ -2,18 +2,18 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
-    [SerializeField] private float maxHealth = 100f;
+    [SerializeField] private int maxHealth = 100;
 
     [SerializeField] private FlashDamageFX flashDamageFX; // Makes player appear red when damaged (you can delete this; I was only really using it for testing)
 
-    private float currentHealth;
+    private int currentHealth;
 
     private void Awake()
     {
         currentHealth = maxHealth;
     }
 
-    public void TakeDamage(float amount, Vector3 hitPoint, Vector3 hitDirection)
+    public void TakeDamage(int amount, Vector3 hitPoint, Vector3 hitDirection)
     {
         currentHealth -= amount;
 
@@ -30,5 +30,15 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     private void Die()
     {
         Destroy(gameObject);
+    }
+
+    public int GetCurrentHealth()
+    {
+        return currentHealth;
+    }
+
+    public void SetCurrentHealth(int value)
+    {
+        currentHealth = Mathf.Clamp(value, 0, maxHealth);
     }
 }

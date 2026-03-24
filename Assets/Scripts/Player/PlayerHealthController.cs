@@ -5,10 +5,10 @@ public class PlayerHealthController : MonoBehaviour, IDamageable
 {
     public event Action<float, float> OnHealthChanged; // This is used by the PlayerUIHandler/Manager to update the health bar.
 
-    [SerializeField] private float maxHealth = 100f;
+    [SerializeField] private int maxHealth = 100;
     [SerializeField] private FlashDamageFX flashDamageFX; // Makes player appear red when damaged (you can delete this; I was only really using it for testing)
 
-    private float _currentHealth;
+    private int _currentHealth;
 
     private void Awake()
     {
@@ -17,7 +17,7 @@ public class PlayerHealthController : MonoBehaviour, IDamageable
         OnHealthChanged?.Invoke(_currentHealth, maxHealth);
     }
 
-    public void TakeDamage(float amount, Vector3 hitPoint, Vector3 hitDirection)
+    public void TakeDamage(int amount, Vector3 hitPoint, Vector3 hitDirection)
     {
         _currentHealth -= amount;
 
@@ -35,5 +35,17 @@ public class PlayerHealthController : MonoBehaviour, IDamageable
     {
         GameManager.Instance.LoadDeathSequence();
     }
+
+    public int GetCurrentHealth()
+    {
+        return _currentHealth;
+    }
+
+    public void SetCurrentHealth(int value)
+    {
+        _currentHealth = Mathf.Clamp(value, 0, maxHealth);
+    }
+
+
 
 }
