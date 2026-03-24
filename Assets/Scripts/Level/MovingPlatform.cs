@@ -4,6 +4,10 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class MovingPlatform : MonoBehaviour
 {
+
+    [Header("Save ID")]
+    [SerializeField] private string platformID;
+    public string PlatformID => platformID;
     [Header("Path")]
     [SerializeField] private Transform[] waypoints;
     [SerializeField] private Transform root;
@@ -77,8 +81,19 @@ public class MovingPlatform : MonoBehaviour
         }
     }
 
+    public int GetNextWaypointIndex()
+    {
+        return currentIndex;
+    }
+
     public Vector3 GetPlatformVelocity()
     {
         return rb.linearVelocity;
+    }
+
+    public void SetPlatformState(Vector3 position, int nextIndex)
+    {
+        transform.position = position;
+        currentIndex = nextIndex;
     }
 }

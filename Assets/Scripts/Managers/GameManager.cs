@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public float MouseSensitivity = 120f;
     // Reset settings at the start of each game? 
 
+    public bool LoadGameFlag = false;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -17,6 +19,7 @@ public class GameManager : MonoBehaviour
             return;
         }
         Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
 
@@ -24,5 +27,10 @@ public class GameManager : MonoBehaviour
     {
         // Will move this later
         SceneManager.LoadScene("GameOver");
+    }
+
+    public void SetLoadFlag()
+    {
+        LoadGameFlag = true;
     }
 }

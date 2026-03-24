@@ -6,7 +6,7 @@ public class PlayerProjectile : MonoBehaviour
 {
     [SerializeField] private float lifeTime = 5f;
     [SerializeField] private string targetTag;
-    [SerializeField] private float damage;
+    [SerializeField] private int damage;
 
     private void Start()
     {

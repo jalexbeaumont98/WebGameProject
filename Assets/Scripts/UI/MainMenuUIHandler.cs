@@ -13,7 +13,9 @@ public class MainMenuUIHandler : MonoBehaviour
 
     public void OnContinueButtonClicked()
     {
-        Debug.Log("To be implemented in next iteration");
+        GameManager.Instance.LoadGameFlag = true;
+        SceneManager.LoadScene(StartSceneName);
+        Debug.Log(StartSceneName);
     }
 
     public void OnOptionsButtonClicked()
