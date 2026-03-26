@@ -158,3 +158,4 @@ MonoBehaviour:
   lifeTime: 5
   targetTag: Player
   damage: 10
+  onCollisionPrefabFx: {fileID: 4152870617453982004, guid: c4d396a65398034a4b95d0d0e6d47cab, type: 3}
