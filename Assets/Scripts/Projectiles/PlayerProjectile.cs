@@ -7,6 +7,7 @@ public class PlayerProjectile : MonoBehaviour
     [SerializeField] private float lifeTime = 5f;
     [SerializeField] private string targetTag;
     [SerializeField] private int damage;
+    [SerializeField] private ParticleSystem onCollisionFx;
 
     private void Start()
     {
