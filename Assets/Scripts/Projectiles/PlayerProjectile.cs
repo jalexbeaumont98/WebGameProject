@@ -31,7 +31,7 @@ public class PlayerProjectile : MonoBehaviour
             {
                 Vector3 hitPoint = collision.contacts[0].point;
                 Vector3 hitDir = collision.relativeVelocity.normalized;
-
+                AudioManager.Instance.PlayOneShot(SoundType.BulletCollision);
                 damageable.TakeDamage(damage, hitPoint, hitDir);
             }
 
