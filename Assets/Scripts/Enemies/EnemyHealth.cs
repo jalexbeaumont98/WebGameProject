@@ -29,7 +29,9 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     private void Die()
     {
-        Instantiate(destroyedPrefabFX, transform.position, Quaternion.identity);
+        GameObject enemyRubble = Instantiate(destroyedPrefabFX, transform.position, Quaternion.identity);
+        Destroy(enemyRubble, 3.5f);
+
         Destroy(gameObject);
     }
 
