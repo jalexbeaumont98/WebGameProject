@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class PlayerHealthController : MonoBehaviour, IDamageable
+public class PlayerHealthController : MonoBehaviour, IDamageable, IHealable
 {
     public event Action<float, float> OnHealthChanged; // This is used by the PlayerUIHandler/Manager to update the health bar.
 
@@ -46,6 +46,18 @@ public class PlayerHealthController : MonoBehaviour, IDamageable
         _currentHealth = Mathf.Clamp(value, 0, maxHealth);
     }
 
+    public void Heal(int amount)
+    {
+        if (_currentHealth < maxHealth)
+        {
+            int previousHealth = _currentHealth;
+            _currentHealth = Mathf.Clamp(_currentHealth + amount, 0, maxHealth);
+            OnHealthChanged?.Invoke(_currentHealth, maxHealth); 
+        }
+    }
 
-
+    public bool CanHeal()
+    {
+        return _currentHealth != maxHealth;
+    }
 }

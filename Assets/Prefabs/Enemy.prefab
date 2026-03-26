@@ -212,6 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   maxHealth: 4
   flashDamageFX: {fileID: -8790251644602539588}
+  destroyedPrefabFX: {fileID: 8475720684858189030, guid: e869586159985aa5aa7f2f40ce0e1e63, type: 3}
 --- !u!114 &-8790251644602539588
 MonoBehaviour:
   m_ObjectHideFlags: 0

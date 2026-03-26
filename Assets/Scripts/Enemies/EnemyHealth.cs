@@ -3,8 +3,8 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
     [SerializeField] private int maxHealth = 100;
-
-    [SerializeField] private FlashDamageFX flashDamageFX; // Makes player appear red when damaged (you can delete this; I was only really using it for testing)
+    [SerializeField] private FlashDamageFX flashDamageFX; 
+    [SerializeField] private GameObject destroyedPrefabFX; 
 
     private int currentHealth;
 
@@ -29,6 +29,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     private void Die()
     {
+        Instantiate(destroyedPrefabFX, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 
