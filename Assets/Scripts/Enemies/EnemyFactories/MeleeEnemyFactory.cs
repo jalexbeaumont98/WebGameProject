@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "MeleeEnemyFactory", menuName = "Scriptable Objects/MeleeEnemyFactory")]
 public class MeleeEnemyFactory : EnemyFactory
 {
-    [SerializeField] private MeleeEnemy enemyPrefab;
+    [SerializeField] private MeleeEnemyAI enemyPrefab;
 
     public override IEnemy CreateEnemy(Vector3 spawnPosition)
     {

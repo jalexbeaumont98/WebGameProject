@@ -24,6 +24,11 @@ public class MeleeEnemy : MonoBehaviour, IEnemy
 
     }
 
+    void OnDestroy()
+    {
+        transform.DetachChildren();
+    }
+
     void OnCollisionEnter(Collision collision)
     {
         IDamageable damageable = collision.collider.GetComponentInParent<IDamageable>();

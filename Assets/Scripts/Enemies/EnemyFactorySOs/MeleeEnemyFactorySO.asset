@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 926bf3c3c84e90b368e6444ac394ebd7, type: 3}
   m_Name: MeleeEnemyFactorySO
   m_EditorClassIdentifier: Assembly-CSharp::MeleeEnemyFactory
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 955721687942662121, guid: 667c81addf56859e5a716ad1323816a7, type: 3}

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RangedEnemy : MonoBehaviour
+public class RangedEnemy : MonoBehaviour, IEnemy
 {
     public void Attack()
     {

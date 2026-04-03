@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6613999041695758384}
   - component: {fileID: 3903727860124557315}
   - component: {fileID: -8790251644602539588}
-  - component: {fileID: -2101904186654459321}
+  - component: {fileID: 955721687942662121}
   m_Layer: 9
   m_Name: MeleeEnemy
   m_TagString: Enemy
@@ -199,7 +199,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 5840723376260896285}
   flashDamageMaterial: {fileID: 2100000, guid: 287d369ce5a05fc1682d0907bf5166f8, type: 2}
   duration: 0.2
---- !u!114 &-2101904186654459321
+--- !u!114 &955721687942662121
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -208,9 +208,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3992155582229466531}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5c65ac6d16359c578d063964cda74fd, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b628fbd86b7d386caaea738c4eacc83, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MeleeEnemy
+  m_EditorClassIdentifier: Assembly-CSharp::MeleeEnemyAI
   rb: {fileID: 8190544250204877199}
   orbitPivot: {fileID: 8737092437631111627}
   orbitIdleSpeed: 90
