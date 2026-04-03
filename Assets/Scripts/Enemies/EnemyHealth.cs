@@ -1,7 +1,10 @@
+using System;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
+    public event Action Died;
+
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private FlashDamageFX flashDamageFX; 
     [SerializeField] private GameObject destroyedPrefabFX; 
@@ -27,14 +30,6 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         }
     }
 
-    private void Die()
-    {
-        GameObject enemyRubble = Instantiate(destroyedPrefabFX, transform.position, Quaternion.identity);
-        Destroy(enemyRubble, 3.5f);
-
-        Destroy(gameObject);
-    }
-
     public int GetCurrentHealth()
     {
         return currentHealth;
@@ -44,4 +39,15 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     {
         currentHealth = Mathf.Clamp(value, 0, maxHealth);
     }
+
+    private void Die()
+    {
+        Died?.Invoke();
+
+        GameObject enemyRubble = Instantiate(destroyedPrefabFX, transform.position, Quaternion.identity);
+        Destroy(enemyRubble, 3.5f);
+
+        Destroy(gameObject);
+    }
+
 }

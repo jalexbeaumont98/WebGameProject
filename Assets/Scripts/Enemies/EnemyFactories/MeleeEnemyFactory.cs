@@ -14,7 +14,7 @@ public class MeleeEnemyFactory : EnemyFactory
         }
 
         GameObject enemyGoInstance = Instantiate(enemyPrefab.gameObject, spawnPosition, Quaternion.identity);
-        IEnemy newEnemy = enemyGoInstance.GetComponent<MeleeEnemy>();
+        IEnemy newEnemy = enemyGoInstance.GetComponent<MeleeEnemyAI>();
         return newEnemy;
     }
 }
