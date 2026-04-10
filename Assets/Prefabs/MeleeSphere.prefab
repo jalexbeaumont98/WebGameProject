@@ -125,4 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abd63c8625a1544ffa8df4df5ebcba86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MeleeWeapon
-  onCollisionPrefabFx: {fileID: 4152870617453982004, guid: c4d396a65398034a4b95d0d0e6d47cab, type: 3}
+  sphereFracturesPrefab: {fileID: 4104270759544573792, guid: 57800c1365840db9ab31094d272dfad2, type: 3}
+  explosionForce: 18
+  explosionRadius: 2.5
+  upwardsModifier: 0
+  randomTorque: 8

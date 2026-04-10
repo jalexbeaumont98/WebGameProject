@@ -20,7 +20,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     {
         currentHealth -= amount;
 
-        Debug.Log(name + " took damage: " + amount);
+        // Debug.Log(name + " took damage: " + amount);
 
         flashDamageFX.Play(); 
 
