@@ -2387,6 +2387,11 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 3.196, y: -5.209, z: -9.993}
   m_TimeToStationary: 0.5
+--- !u!1 &128562997 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2092318671668139289, guid: 8f5ecb99eeac0ff47bfe90017b4db2ec, type: 3}
+  m_PrefabInstance: {fileID: 4337150722215485535}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &160997310
 Mesh:
   m_ObjectHideFlags: 0
@@ -3060,7 +3065,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &291379317
 Transform:
   m_ObjectHideFlags: 0
@@ -5150,10 +5155,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81c4951385724a34a88e25419a5682af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerGroundCheck
-  checkDistance: 0.6
   groundMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 256
+  groundedBuffer: 0.1
+  triggerInteraction: 1
+  showDebug: 0
 --- !u!114 &845154814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5173,6 +5180,8 @@ MonoBehaviour:
   camController: {fileID: 1293299022}
   camTransform: {fileID: 1293299019}
   playerInput: {fileID: 845154808}
+  shootButton: {fileID: 128562997}
+  jumpButton: {fileID: 2080098991}
   groundCheck: {fileID: 845154813}
 --- !u!114 &845154815
 MonoBehaviour:
@@ -11515,7 +11524,7 @@ GameObject:
   - component: {fileID: 1998805270}
   - component: {fileID: 1998805277}
   - component: {fileID: 1998805276}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
