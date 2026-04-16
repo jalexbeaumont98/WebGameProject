@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3312758952403955210}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 2534964839176971238, guid: a4462a1724a63ec4699d614cd393a8d2, type: 3}
 --- !u!23 &8002869717060781169
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -158,3 +158,4 @@ MonoBehaviour:
   lifeTime: 5
   targetTag: Enemy
   damage: 1
+  onCollisionPrefabFx: {fileID: 4152870617453982004, guid: c4d396a65398034a4b95d0d0e6d47cab, type: 3}

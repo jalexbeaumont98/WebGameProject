@@ -8,4 +8,5 @@ public enum SoundType
     Dash,
     Jump,
     Explosion,
+    BulletCollision,
 }

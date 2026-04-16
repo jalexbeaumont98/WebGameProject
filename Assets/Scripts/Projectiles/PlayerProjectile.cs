@@ -7,6 +7,7 @@ public class PlayerProjectile : MonoBehaviour
     [SerializeField] private float lifeTime = 5f;
     [SerializeField] private string targetTag;
     [SerializeField] private int damage;
+    [SerializeField] private GameObject onCollisionPrefabFx; // Particle system creates spark effect
 
     private void Start()
     {
@@ -15,16 +16,22 @@ public class PlayerProjectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        ContactPoint contactPoint = collision.contacts[0];
+        if (onCollisionPrefabFx != null)
+        {
+            GameObject sparkFx = Instantiate(onCollisionPrefabFx, contactPoint.point, Quaternion.LookRotation(contactPoint.normal));
+            Destroy(sparkFx, 1.5f);
+        }
+
         if (collision.transform.tag == targetTag)
         {
-
             IDamageable damageable = collision.collider.GetComponentInParent<IDamageable>();
 
             if (damageable != null)
             {
                 Vector3 hitPoint = collision.contacts[0].point;
                 Vector3 hitDir = collision.relativeVelocity.normalized;
-
+                AudioManager.Instance.PlayOneShot(SoundType.BulletCollision);
                 damageable.TakeDamage(damage, hitPoint, hitDir);
             }
 

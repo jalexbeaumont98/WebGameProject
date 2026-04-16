@@ -1,10 +1,13 @@
+using System;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
-    [SerializeField] private int maxHealth = 100;
+    public event Action Died;
 
-    [SerializeField] private FlashDamageFX flashDamageFX; // Makes player appear red when damaged (you can delete this; I was only really using it for testing)
+    [SerializeField] private int maxHealth = 100;
+    [SerializeField] private FlashDamageFX flashDamageFX; 
+    [SerializeField] private GameObject destroyedPrefabFX; 
 
     private int currentHealth;
 
@@ -17,7 +20,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     {
         currentHealth -= amount;
 
-        Debug.Log(name + " took damage: " + amount);
+        // Debug.Log(name + " took damage: " + amount);
 
         flashDamageFX.Play(); 
 
@@ -25,11 +28,6 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         {
             Die();
         }
-    }
-
-    private void Die()
-    {
-        Destroy(gameObject);
     }
 
     public int GetCurrentHealth()
@@ -41,4 +39,15 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     {
         currentHealth = Mathf.Clamp(value, 0, maxHealth);
     }
+
+    private void Die()
+    {
+        Died?.Invoke();
+
+        GameObject enemyRubble = Instantiate(destroyedPrefabFX, transform.position, Quaternion.identity);
+        Destroy(enemyRubble, 3.5f);
+
+        Destroy(gameObject);
+    }
+
 }
