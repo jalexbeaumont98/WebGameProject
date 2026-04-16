@@ -27,6 +27,10 @@ public class ModeController : MonoBehaviour
     [SerializeField] private PlayerInput playerInput;
     public PlayerInput PlayerInput => playerInput;
 
+    [Header("Mobile Controls")]
+    [SerializeField] private GameObject shootButton;
+    [SerializeField] private GameObject jumpButton;
+
 
     [SerializeField] private PlayerGroundCheck groundCheck;
     public PlayerGroundCheck GroundCheck => groundCheck;
@@ -98,11 +102,15 @@ public class ModeController : MonoBehaviour
         tps.enabled = false;
         heli.enabled = false;
 
-        shooter.enabled = false;              
+        shooter.enabled = false;
 
 
         camController.SetAllowPitch(false);                                       //cam.AllowPitch = false;               // rolling rule
 
+#if UNITY_ANDROID || UNITY_EDITOR
+    shootButton.SetActive(false);
+    jumpButton.SetActive(false);
+#endif
 
     }
 
@@ -113,19 +121,25 @@ public class ModeController : MonoBehaviour
         tps.enabled = true;
         heli.enabled = false;
 
-        shooter.enabled = true; 
+        shooter.enabled = true;
 
 
         camController.SetAllowPitch(true);
+
+#if UNITY_ANDROID || UNITY_EDITOR
+    shootButton.SetActive(true);
+    jumpButton.SetActive(true);
+#endif
+
     }
 
     public void SetModeHelicopter()
     {
-        
+
 
     }
 
-    
+
 
 
 }

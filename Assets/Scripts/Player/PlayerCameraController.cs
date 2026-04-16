@@ -37,8 +37,11 @@ public class PlayerCameraController : MonoBehaviour
         yaw = transform.eulerAngles.y;
         currentPitch = transform.eulerAngles.x;
 
+#if !UNITY_ANDROID && !UNITY_EDITOR
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+#endif
+
 
     }
 

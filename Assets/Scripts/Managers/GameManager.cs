@@ -1,25 +1,21 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager : PersistentSingleton<GameManager>
 {
-    public static GameManager Instance;
-
-    [Header("Game Options/Settings")] 
     public float MouseSensitivity = 120f;
     // Reset settings at the start of each game? 
 
+    [Header("Mobile Controls")]
+    [SerializeField] GameObject mobileControlsParent;
+
     public bool LoadGameFlag = false;
 
-    private void Awake()
+    void Start()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
+#if UNITY_ANDROID || UNITY_EDITOR
+    mobileControlsParent.SetActive(true);
+#endif
     }
 
 
