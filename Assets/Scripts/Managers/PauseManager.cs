@@ -44,8 +44,11 @@ public class PauseManager : MonoBehaviour
         else
         {
             pauseMenu.SetActive(false);
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            
+#if !UNITY_ANDROID && !UNITY_EDITOR
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+#endif
 
         }
     }
