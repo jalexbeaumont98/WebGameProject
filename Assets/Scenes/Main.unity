@@ -3607,6 +3607,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &409843139
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 409843141}
+  - component: {fileID: 409843140}
+  m_Layer: 0
+  m_Name: ProjectileObjectPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &409843140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409843139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a68342ddb053e9852914c2617656d300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectileObjectPool
+  projectileBulletPrefab: {fileID: -1490236992119436312, guid: 981db60c59b7abbd88c6a39e20555889, type: 3}
+--- !u!4 &409843141
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409843139}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.54183, y: 0.87535, z: 1.42425}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &424163084
 GameObject:
   m_ObjectHideFlags: 0
@@ -5088,12 +5133,11 @@ MonoBehaviour:
   playerInput: {fileID: 0}
   cameraTransform: {fileID: 1293299019}
   muzzle: {fileID: 845154807}
-  projectilePrefab: {fileID: 8741402637289321661, guid: 297aa6c3a771a3a4cb58a2120ab43924, type: 3}
   aimMaxDistance: 200
   aimMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  projectileSpeed: 40
+  projectileSpeed: 45
   fireCooldown: 0.15
   ownerRb: {fileID: 845154803}
 --- !u!114 &845154810
@@ -12601,3 +12645,4 @@ SceneRoots:
   - {fileID: 1231789625}
   - {fileID: 342199170}
   - {fileID: 491691673}
+  - {fileID: 409843141}

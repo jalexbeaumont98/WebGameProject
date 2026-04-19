@@ -7,7 +7,6 @@ public class ShooterController : MonoBehaviour
     [SerializeField] private PlayerInput playerInput;
     [SerializeField] private Transform cameraTransform;  // your main camera
     [SerializeField] private Transform muzzle;           // spawn point
-    [SerializeField] private Rigidbody projectilePrefab; // must have Rigidbody
 
     [Header("Aim")]
     [SerializeField] private float aimMaxDistance = 200f;
@@ -43,13 +42,13 @@ public class ShooterController : MonoBehaviour
 
     private void OnFire(InputAction.CallbackContext ctx)
     {
+        if (cameraTransform == null || muzzle == null) return;
+
         if (Time.time < nextFireTime) return;
         nextFireTime = Time.time + fireCooldown;
 
-        if (cameraTransform == null || muzzle == null || projectilePrefab == null) return;
-
         // 1) Ray from camera center (camera forward)
-        Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
+        Ray ray = new(cameraTransform.position, cameraTransform.forward);
 
         Vector3 aimPoint;
         if (Physics.Raycast(ray, out RaycastHit hit, aimMaxDistance, aimMask, QueryTriggerInteraction.Ignore))
@@ -64,15 +63,23 @@ public class ShooterController : MonoBehaviour
         // 2) Direction from muzzle to aim point
         Vector3 dir = (aimPoint - muzzle.position).normalized;
 
-        // 3) Spawn projectile and set velocity toward aim point
-        Rigidbody proj = Instantiate(projectilePrefab, muzzle.position, Quaternion.LookRotation(dir, Vector3.up));
+        // 3) Get projectile from object pool and set velocity toward aim point
+        ProjectileBullet projectileBullet = ProjectileObjectPool.Instance.Get();
+        projectileBullet.transform.SetPositionAndRotation(muzzle.position, Quaternion.LookRotation(dir, Vector3.up));
+        projectileBullet.gameObject.SetActive(true);
+        Rigidbody projRb = projectileBullet.GetComponent<Rigidbody>();
+
+        if (projRb == null)
+        {
+            Debug.Log("ProjectileBullet is missing rigidbody: player and projectile may not work properly");
+            return;
+        }
 
         Vector3 vel = dir * projectileSpeed;
-
         // Optional: inherit player velocity so shooting while moving feels natural
-        if (ownerRb != null)
-            vel += ownerRb.linearVelocity;
+        if (ownerRb != null) vel += ownerRb.linearVelocity;
 
-        proj.linearVelocity = vel;
+        projRb.linearVelocity = vel;
     }
+
 }
