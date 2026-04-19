@@ -3,8 +3,8 @@ using UnityEngine;
 public class MeleeWeapon : MonoBehaviour
 {
     [SerializeField] private GameObject sphereFracturesPrefab; 
-    [SerializeField] private float _explosionForce = 200f;
-    [SerializeField] private float _explosionRadius = 5f;
+    // [SerializeField] private float _explosionForce = 200f;
+    // [SerializeField] private float _explosionRadius = 5f;
     // [SerializeField] private float randomTorque = 8f;
 
     private bool _wasDetached;
