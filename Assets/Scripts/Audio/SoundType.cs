@@ -9,4 +9,5 @@ public enum SoundType
     Jump,
     Explosion,
     BulletCollision,
+    AchievementUnlocked,
 }

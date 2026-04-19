@@ -67,8 +67,13 @@ public class ShooterController : MonoBehaviour
         ProjectileBullet projectileBullet = ProjectileObjectPool.Instance.Get();
         projectileBullet.transform.SetPositionAndRotation(muzzle.position, Quaternion.LookRotation(dir, Vector3.up));
         projectileBullet.gameObject.SetActive(true);
-        Rigidbody projRb = projectileBullet.GetComponent<Rigidbody>();
 
+
+        projectileBullet.GetComponent<IMarkable>().Mark(MarkType.Player); // Mark the bullet, so bullet passes mark to whatever it hits. If an enemy marked by a player dies, then it contributes to the player's achievement count.
+
+        EventChannelManager.Instance.BulletsFiredEvent.RaiseEvent(); // For achievement system
+
+        Rigidbody projRb = projectileBullet.GetComponent<Rigidbody>();
         if (projRb == null)
         {
             Debug.Log("ProjectileBullet is missing rigidbody: player and projectile may not work properly");

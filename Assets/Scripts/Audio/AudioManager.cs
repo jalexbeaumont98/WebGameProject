@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource SFXSource;
     [SerializeField] private AudioSource SFXSourceDistant;
     [SerializeField] private AudioSource SFXSourceOneShot;
+    [SerializeField] private AudioSource SFXSourceUIOneShot;
     [SerializeField] private List<SoundEntry> soundLibrary; // This just looks nice in the inspector
 
     private Dictionary<SoundType, AudioClip> soundLibraryLookup;// Needed for the soundLibary (couldn't find a way around this)
@@ -79,5 +80,13 @@ public class AudioManager : MonoBehaviour
         }
 
         SFXSourceDistant.PlayOneShot(audioClip);
+    }
+
+    public void PlayUIOneShot(SoundType soundType)
+    {
+        if (soundType == SoundType.None) return;
+        if (!soundLibraryLookup.TryGetValue(soundType, out AudioClip audioClip) || audioClip == null) return;
+
+        SFXSourceUIOneShot.PlayOneShot(audioClip);
     }
 }
