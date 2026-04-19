@@ -7,6 +7,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private AudioSource backgroundMusicSource;
     [SerializeField] private AudioSource SFXSource;
+    [SerializeField] private AudioSource SFXSourceDistant;
     [SerializeField] private AudioSource SFXSourceOneShot;
     [SerializeField] private List<SoundEntry> soundLibrary; // This just looks nice in the inspector
 
@@ -33,9 +34,8 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    void Start()
+    private void Start()
     {
-        // Plays the background music if it isn't already playing.
         if (!backgroundMusicSource.isPlaying) backgroundMusicSource.Play();
     }
 
@@ -67,5 +67,17 @@ public class AudioManager : MonoBehaviour
         if (!soundLibraryLookup.TryGetValue(soundType, out AudioClip audioClip) || audioClip == null) return;
 
         SFXSourceOneShot.PlayOneShot(audioClip);
+    }
+
+    public void PlayDistantOneShot(SoundType soundType)
+    {
+        if (soundType == SoundType.None) return;
+        if (!soundLibraryLookup.TryGetValue(soundType, out AudioClip audioClip) || audioClip == null) return;
+        if (SFXSourceDistant.volume >= .111f)
+        {
+            SFXSourceDistant.volume = .111f;
+        }
+
+        SFXSourceDistant.PlayOneShot(audioClip);
     }
 }

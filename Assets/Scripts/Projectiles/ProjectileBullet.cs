@@ -24,7 +24,7 @@ public class ProjectileBullet : MonoBehaviour
             {
                 Vector3 hitPoint = contactPoint.point;
                 Vector3 hitDir = collision.relativeVelocity.normalized;
-                AudioManager.Instance.PlayOneShot(SoundType.BulletCollision); // Only plays sound when colliding with enemy or else it's too distracting
+                AudioManager.Instance.PlayDistantOneShot(SoundType.BulletCollision); // Only plays sound when colliding with enemy or else it's too distracting
                 damageable.TakeDamage(damage, hitPoint, hitDir);
             }
         }
