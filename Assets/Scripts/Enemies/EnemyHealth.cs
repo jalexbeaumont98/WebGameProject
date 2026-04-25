@@ -50,7 +50,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMarkable
 
         // Only call this event if the player damages the enemy
         if (_mark != MarkType.None && _mark == MarkType.Player) 
-            EventChannelManager.Instance.EnemyDefeatedEvent.RaiseEvent();
+            EventChannelManagerB.Instance.EnemyDefeatedEvent.RaiseEvent();
 
         GameObject enemyRubble = Instantiate(destroyedPrefabFX, transform.position, Quaternion.identity);
         Destroy(enemyRubble, 3.5f);

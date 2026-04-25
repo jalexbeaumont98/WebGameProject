@@ -1,4 +1,4 @@
-public class EventChannelManager : PersistentSingleton<EventChannelManager>
+public class EventChannelManagerB : PersistentSingleton<EventChannelManagerB>
 {
     public EnemyDefeatedEventChannel EnemyDefeatedEvent;
     public BulletsFiredEventChannel BulletsFiredEvent;

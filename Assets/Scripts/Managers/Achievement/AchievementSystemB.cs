@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AchievementSystem : MonoBehaviour
+public class AchievementSystemB : MonoBehaviour
 {
     [SerializeField] private EnemyDefeatedEventChannel enemyDefeatedChannel;
     [SerializeField] private BulletsFiredEventChannel bulletsFiredChannel;

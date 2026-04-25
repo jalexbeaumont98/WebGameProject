@@ -40,7 +40,7 @@ public class ProjectileBullet : MonoBehaviour, IMarkable
                 Vector3 hitDir = collision.relativeVelocity.normalized;
                 AudioManager.Instance.PlayDistantOneShot(SoundType.BulletCollision); // Only plays sound when colliding with enemy or else it's too distracting
                 damageable.TakeDamage(damage, hitPoint, hitDir);
-                EventChannelManager.Instance.DamageDealtEvent.RaiseEvent(damage);
+                EventChannelManagerB.Instance.DamageDealtEvent.RaiseEvent(damage);
             }
         }
 

@@ -71,7 +71,7 @@ public class ShooterController : MonoBehaviour
 
         projectileBullet.GetComponent<IMarkable>().Mark(MarkType.Player); // Mark the bullet, so bullet passes mark to whatever it hits. If an enemy marked by a player dies, then it contributes to the player's achievement count.
 
-        EventChannelManager.Instance.BulletsFiredEvent.RaiseEvent(); // For achievement system
+        EventChannelManagerB.Instance.BulletsFiredEvent.RaiseEvent(); // For achievement system
 
         Rigidbody projRb = projectileBullet.GetComponent<Rigidbody>();
         if (projRb == null)
