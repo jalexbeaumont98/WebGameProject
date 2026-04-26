@@ -7,7 +7,8 @@ public class InventorySystem : PersistenceSingleton<InventorySystem>
     private int maxItemCount = 3; // Maximum number of items per item type
 
     private int _healthPacks = 0;
-    private int _bombs;
+    private int _bombs = 3;
+    
     private int _speedBoosters;
 
     public void Add(ItemType itemType)
@@ -58,6 +59,15 @@ public class InventorySystem : PersistenceSingleton<InventorySystem>
     }
 
     public void ConsumeHealthPack()
+    {
+        if (_healthPacks > 0)
+        {
+            _healthPacks--;
+            OnHealthPackCountChanged?.Invoke(_healthPacks);
+        }
+    }
+
+    public void ConsumeBomb()
     {
         if (_healthPacks > 0)
         {

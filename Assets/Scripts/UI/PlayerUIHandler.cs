@@ -9,6 +9,8 @@ public class PlayerUIHandler : MonoBehaviour
     [SerializeField] private PlayerHealthController playerHealthController;
     [SerializeField] private VerticalLayoutGroup healthPackContainer; // Displays health packs on right side of ui 
     [SerializeField] private Image healthPackIcon; // Image of the health pack icon to be displayed in ui 
+    [SerializeField] private TMP_Text bombCount; 
+
     // [SerializeField] private TMP_Text flashMessage; 
 
     // private Coroutine _displayMessageCo;
@@ -43,6 +45,12 @@ public class PlayerUIHandler : MonoBehaviour
             Instantiate(healthPackIcon, healthPackContainer.transform);
         }
     }
+
+    public void UpdateBombCount(int amount)
+    {
+        bombCount.text = "Bombs: #" + amount;
+    }
+
     // public void DisplayMessage(string message, float duration)
     // {
     //     if (_displayMessageCo != null)
