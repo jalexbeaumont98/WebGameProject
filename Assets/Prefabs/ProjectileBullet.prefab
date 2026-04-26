@@ -69,7 +69,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6c534d1ff0cb9b74db827762a5927ce1, type: 2}
+  - {fileID: 2100000, guid: 6668531df75e7dd2bbedcb9385c4e4f4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -155,7 +155,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af2d83709cda627339b069d368f86e14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileBullet
-  lifeTime: 5
   targetTag: Enemy
   damage: 1
   onCollisionPrefabFx: {fileID: 4152870617453982004, guid: c4d396a65398034a4b95d0d0e6d47cab, type: 3}
