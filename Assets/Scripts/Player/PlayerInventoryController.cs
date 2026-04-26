@@ -1,11 +1,15 @@
 using UnityEngine;
 
 // Used by the to add items to their inventory.
-public class PlayerInventoryController : MonoBehaviour
+public class PlayerInventoryController : MonoBehaviour, ICollector
 {
-    private void OnCollisionEnter(Collision collision)
+    public void Collect(ItemType itemType)
     {
-        ICollectable item = collision.gameObject.GetComponent<ICollectable>();    
-        InventorySystem.Instance.Add(item.GetItemType());
+        InventorySystem.Instance.Add(itemType);
+    }
+
+    public bool CanCollect(ItemType itemType)
+    {
+        return InventorySystem.Instance.CanAdd(itemType);
     }
 }

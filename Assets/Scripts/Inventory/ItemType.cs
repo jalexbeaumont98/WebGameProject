@@ -2,6 +2,7 @@ public enum ItemType
 {
     Rocket,
     Bomb,
-    Potion,
-    Shield
+    HealthPack,
+    Shield,
+    Nothing
 }
