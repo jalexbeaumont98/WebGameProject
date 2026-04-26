@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,16 +10,17 @@ public class PlayerUIHandler : MonoBehaviour
     [SerializeField] private VerticalLayoutGroup healthPackContainer; // Displays health packs on right side of ui 
     [SerializeField] private Image healthPackIcon; // Image of the health pack icon to be displayed in ui 
     [SerializeField] private TMP_Text bombCount; 
+    [SerializeField] private TMP_Text achievementMessage; 
+    [SerializeField] private AchievementSystemB achievementSystem;
 
-    // [SerializeField] private TMP_Text flashMessage; 
-
-    // private Coroutine _displayMessageCo;
+    private Coroutine _achievementMessageCo;
 
     private void Start()
     {
         playerHealthController.OnHealthChanged += UpdateHealth;
         InventorySystem.Instance.OnHealthPackCountChanged += UpdateHealthPacks;
         InventorySystem.Instance.OnBombCountChanged += UpdateBombCount;
+        achievementSystem.OnAchievementUnlocked += DisplayAchievementMessage;
     }
 
     private void OnDestroy()
@@ -26,6 +28,7 @@ public class PlayerUIHandler : MonoBehaviour
         playerHealthController.OnHealthChanged -= UpdateHealth;
         InventorySystem.Instance.OnHealthPackCountChanged -= UpdateHealthPacks;
         InventorySystem.Instance.OnBombCountChanged -= UpdateBombCount;
+        achievementSystem.OnAchievementUnlocked -= DisplayAchievementMessage;
     }
 
     public void UpdateHealth(float currentHealth, float maxHealth)
@@ -52,21 +55,21 @@ public class PlayerUIHandler : MonoBehaviour
         bombCount.text = "Bombs: #" + amount;
     }
 
-    // public void DisplayMessage(string message, float duration)
-    // {
-    //     if (_displayMessageCo != null)
-    //     {
-    //         StopCoroutine(_displayMessageCo);
-    //         _displayMessageCo = null;
-    //     }
+    public void DisplayAchievementMessage(string message)
+    {
+        if (_achievementMessageCo != null)
+        {
+            StopCoroutine(_achievementMessageCo);
+            _achievementMessageCo = null;
+        }
 
-    //     _displayMessageCo = StartCoroutine(DisplayMessageFor(message, duration));
-    // }
+        _achievementMessageCo = StartCoroutine(DisplayMessageFor(message, 3f));
+    }
 
-    // public IEnumerator DisplayMessageFor(string message, float duration)
-    // {
-    //     flashMessage.text = message;
-    //     yield return new WaitForSeconds(duration);
-    //     flashMessage.text = "";
-    // }
+    public IEnumerator DisplayMessageFor(string message, float duration)
+    {
+        achievementMessage.text = "Achievement Unlocked:\n" + message;
+        yield return new WaitForSeconds(duration);
+        achievementMessage.text = "";
+    }
 }
