@@ -3,28 +3,29 @@ using System;
 
 public class AchievementSystemB : MonoBehaviour
 {
-
     public event Action<string> OnAchievementUnlocked; 
-    // public event Action<string> OnBulletsFiredAchievementUnlocked; 
-    // public event Action<string> OnDamageDealtAchievementUnlocked; 
 
     [SerializeField] private EnemyDefeatedEventChannel enemyDefeatedChannel;
     [SerializeField] private BulletsFiredEventChannel bulletsFiredChannel;
     [SerializeField] private DamageDealtEventChannel damageDealtChannel;
+    [SerializeField] private BombsDroppedEventChannel bombsDroppedChannel;
 
     [SerializeField] private int achievementEnemiesDefeated = 3;
     [SerializeField] private int achievementBulletsFired = 30;
     [SerializeField] private int achievementDamageDealt = 10;
+    [SerializeField] private int achievementBombsDropped = 5;
 
     private int _currentEnemiesDefeated = 0;
     private int _currentBulletsFired = 0;
     private int _currentDamageDealt = 0;
+    private int _currentBombsDropped = 0;
 
     private void OnEnable()
     {
         enemyDefeatedChannel.OnEventRaised += EnemyDefeatedEvent;
         bulletsFiredChannel.OnEventRaised += BulletsFiredEvent;
         damageDealtChannel.OnEventRaised += DamageDealtEventCalled;
+        bombsDroppedChannel.OnEventRaised += BombsDroppedEvent;
     }
 
     private void OnDisable()
@@ -32,6 +33,7 @@ public class AchievementSystemB : MonoBehaviour
         enemyDefeatedChannel.OnEventRaised -= EnemyDefeatedEvent;
         bulletsFiredChannel.OnEventRaised -= BulletsFiredEvent;
         damageDealtChannel.OnEventRaised -= DamageDealtEventCalled;
+        bombsDroppedChannel.OnEventRaised -= BombsDroppedEvent;
     }
 
     private void EnemyDefeatedEvent()
@@ -64,6 +66,17 @@ public class AchievementSystemB : MonoBehaviour
         {
             Debug.Log("Achievement Unlocked: " + _currentDamageDealt + " damage dealt.");
             OnAchievementUnlocked?.Invoke(_currentDamageDealt + " damage dealt.");
+            AudioManager.Instance.PlayUIOneShot(SoundType.AchievementUnlocked);
+        }
+    }
+
+    private void BombsDroppedEvent()
+    {
+        _currentBombsDropped++;
+        if (_currentBombsDropped == achievementBombsDropped)
+        {
+            Debug.Log("Achievement Unlocked: " + _currentBombsDropped + " bombs dropped.");
+            OnAchievementUnlocked?.Invoke(_currentBombsDropped + " bombs dropped.");
             AudioManager.Instance.PlayUIOneShot(SoundType.AchievementUnlocked);
         }
     }

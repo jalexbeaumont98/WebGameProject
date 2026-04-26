@@ -35,6 +35,7 @@ public class PlayerBombController : MonoBehaviour
         {
             InventorySystem.Instance.Consume(ItemType.Bomb);
             Instantiate(bombPrefab, transform.position, transform.rotation);
+            EventChannelManagerB.Instance.BombsDroppedEvent.RaiseEvent(); // For achievement system
         }
     }
 }

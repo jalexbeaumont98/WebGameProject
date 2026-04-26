@@ -8776,9 +8776,11 @@ MonoBehaviour:
   enemyDefeatedChannel: {fileID: 11400000, guid: f6b4373158c8a08f8b177e9d2bb1ca7c, type: 2}
   bulletsFiredChannel: {fileID: 11400000, guid: 5338a12100bafcd0abd36172b5ddb9ff, type: 2}
   damageDealtChannel: {fileID: 11400000, guid: 5e4bd8ae55791d124b0e824d85eef5bd, type: 2}
+  bombsDroppedChannel: {fileID: 11400000, guid: f13696aaacef18c16aa3812f107eb413, type: 2}
   achievementEnemiesDefeated: 3
   achievementBulletsFired: 15
   achievementDamageDealt: 10
+  achievementBombsDropped: 5
 --- !u!4 &1597503183
 Transform:
   m_ObjectHideFlags: 0
@@ -9363,6 +9365,7 @@ MonoBehaviour:
   EnemyDefeatedEvent: {fileID: 11400000, guid: f6b4373158c8a08f8b177e9d2bb1ca7c, type: 2}
   BulletsFiredEvent: {fileID: 11400000, guid: 5338a12100bafcd0abd36172b5ddb9ff, type: 2}
   DamageDealtEvent: {fileID: 11400000, guid: 5e4bd8ae55791d124b0e824d85eef5bd, type: 2}
+  BombsDroppedEvent: {fileID: 11400000, guid: f13696aaacef18c16aa3812f107eb413, type: 2}
 --- !u!4 &1750588796
 Transform:
   m_ObjectHideFlags: 0
