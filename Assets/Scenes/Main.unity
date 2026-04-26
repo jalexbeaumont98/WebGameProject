@@ -5077,6 +5077,7 @@ GameObject:
   - component: {fileID: 845154816}
   - component: {fileID: 845154818}
   - component: {fileID: 845154819}
+  - component: {fileID: 845154820}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -5364,6 +5365,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: c6c4ffeb-b614-43cf-87e7-c17af1ec8677
     m_ActionName: 'Rolling/DropBomb[/Keyboard/r]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 40e2e77e-982f-4020-ac7c-b2f106d6d21c
+    m_ActionName: 'Rolling/UseHeal[/Keyboard/1]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 536e2e8b-af67-4393-9622-13b70e174981
+    m_ActionName: 'TPS/UseHeal[/Keyboard/1]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Rolling
@@ -5546,6 +5555,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerBombController
   playerInput: {fileID: 0}
   bombPrefab: {fileID: 4577861460560557521, guid: 77944e513bf819b4086c42b98332c0f4, type: 3}
+--- !u!114 &845154820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845154801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c76b77bd2c96464c5bc33c00186885a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealthConsumer
+  playerInput: {fileID: 0}
+  playerHealth: {fileID: 845154816}
 --- !u!1 &969343205 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6275731577522052483, guid: 8f5ecb99eeac0ff47bfe90017b4db2ec, type: 3}

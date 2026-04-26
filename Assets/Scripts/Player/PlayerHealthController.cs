@@ -59,6 +59,6 @@ public class PlayerHealthController : MonoBehaviour, IDamageable, IHealable
 
     public bool CanHeal()
     {
-        return _currentHealth != maxHealth;
+        return _currentHealth < maxHealth;
     }
 }

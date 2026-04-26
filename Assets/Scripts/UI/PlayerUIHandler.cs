@@ -19,12 +19,14 @@ public class PlayerUIHandler : MonoBehaviour
     {
         playerHealthController.OnHealthChanged += UpdateHealth;
         InventorySystem.Instance.OnHealthPackCountChanged += UpdateHealthPacks;
+        InventorySystem.Instance.OnBombCountChanged += UpdateBombCount;
     }
 
     private void OnDestroy()
     {
         playerHealthController.OnHealthChanged -= UpdateHealth;
         InventorySystem.Instance.OnHealthPackCountChanged -= UpdateHealthPacks;
+        InventorySystem.Instance.OnBombCountChanged -= UpdateBombCount;
     }
 
     public void UpdateHealth(float currentHealth, float maxHealth)

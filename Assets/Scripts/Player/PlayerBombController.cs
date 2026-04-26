@@ -30,6 +30,11 @@ public class PlayerBombController : MonoBehaviour
     private void OnDropBomb(InputAction.CallbackContext _)
     {
         if (bombPrefab == null) return;
-        Instantiate(bombPrefab, transform.position, transform.rotation);
+
+        if (InventorySystem.Instance.CanConsume(ItemType.Bomb))
+        {
+            InventorySystem.Instance.Consume(ItemType.Bomb);
+            Instantiate(bombPrefab, transform.position, transform.rotation);
+        }
     }
 }

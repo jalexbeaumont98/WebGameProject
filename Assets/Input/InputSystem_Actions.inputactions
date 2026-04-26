@@ -1102,6 +1102,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "UseHeal",
+                    "type": "Button",
+                    "id": "40e2e77e-982f-4020-ac7c-b2f106d6d21c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1335,6 +1344,17 @@
                     "action": "DropBomb",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "22265cab-4f42-4756-af4d-da5d3e12d43e",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseHeal",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -1400,6 +1420,15 @@
                     "name": "DropBomb",
                     "type": "Button",
                     "id": "1072eb87-fac8-4aa5-8dcd-188ecd152151",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "UseHeal",
+                    "type": "Button",
+                    "id": "536e2e8b-af67-4393-9622-13b70e174981",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -1734,6 +1763,17 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "DropBomb",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a50b0f05-e56e-4718-ae36-f596ef1f8c76",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "UseHeal",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
