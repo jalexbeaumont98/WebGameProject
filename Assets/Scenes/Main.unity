@@ -5110,7 +5110,7 @@ MonoBehaviour:
   aimMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  projectileSpeed: 45
+  projectileSpeed: 50
   fireCooldown: 0.15
   ownerRb: {fileID: 845154803}
 --- !u!114 &845154810
