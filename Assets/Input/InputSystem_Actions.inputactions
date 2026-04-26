@@ -95,6 +95,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "DropDomb",
+                    "type": "Button",
+                    "id": "98d79f26-ae1b-4806-9b29-59ef036ec514",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -513,6 +522,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "OpenPauseMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3db1ea94-91a6-41f8-93be-fb2d3a55a8fd",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "DropDomb",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -1355,6 +1375,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "DropBomb",
+                    "type": "Button",
+                    "id": "1072eb87-fac8-4aa5-8dcd-188ecd152151",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1674,6 +1703,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "S_Rolling",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2d50d0be-ff02-4425-afeb-6ada843cfa9b",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "DropBomb",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

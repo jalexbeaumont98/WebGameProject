@@ -8,6 +8,7 @@ public class InventorySystem : PersistenceSingleton<InventorySystem>
 
     private int _healthPacks = 0;
     private int _bombs;
+    private int _speedBoosters;
 
     public void Add(ItemType itemType)
     {
@@ -18,6 +19,11 @@ public class InventorySystem : PersistenceSingleton<InventorySystem>
             case ItemType.HealthPack:
             AddHealthPack();
             break;
+
+            case ItemType.SpeedBooster:
+            _speedBoosters++;
+            break;
+
             case ItemType.Bomb:
             _bombs++;
             break;

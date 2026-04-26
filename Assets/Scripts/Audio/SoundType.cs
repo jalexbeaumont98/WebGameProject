@@ -5,9 +5,11 @@ public enum SoundType
     Move,
     Dash,
     Jump,
-    Explosion,
     BulletCollision,
     AchievementUnlocked,
     DrinkPotion,
-    ItemPickup
+    ItemPickup,
+    BombTimer,
+    Explosion,
+    GroundCollision
 }

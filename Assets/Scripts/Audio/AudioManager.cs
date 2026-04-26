@@ -89,4 +89,13 @@ public class AudioManager : MonoBehaviour
 
         SFXSourceUIOneShot.PlayOneShot(audioClip);
     }
+
+    public float PlayAndGetLength(SoundType soundType)
+    {
+        if (soundType == SoundType.None) return -1;
+        if (!soundLibraryLookup.TryGetValue(soundType, out AudioClip audioClip) || audioClip == null) return -1;
+
+        SFXSourceOneShot.PlayOneShot(audioClip);
+        return audioClip.length;
+    }
 }
