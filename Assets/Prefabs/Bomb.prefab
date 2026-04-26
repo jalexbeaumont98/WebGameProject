@@ -106,6 +106,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileBomb
   explosionPrefabFx: {fileID: 7789359243967231483, guid: fa37248235a0cb4c7ad3fa275635db41, type: 3}
+  megaExplosionPrefabFx: {fileID: 7789359243967231483, guid: 14bc0b49baf1d5a1cb685ad57a8d9282, type: 3}
+  megaExplosionProbability: 0.5
 --- !u!54 &1874860185506856741
 Rigidbody:
   m_ObjectHideFlags: 0

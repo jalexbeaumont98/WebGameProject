@@ -4,6 +4,8 @@ using UnityEngine;
 public class ProjectileBomb : MonoBehaviour
 {
     [SerializeField] private GameObject explosionPrefabFx;
+    [SerializeField] private GameObject megaExplosionPrefabFx;
+    [SerializeField, Range(0f, 1f)] private float megaExplosionProbability = 0.2f;
 
     private void Start()
     {
@@ -19,7 +21,11 @@ public class ProjectileBomb : MonoBehaviour
 
     private void Explode()
     {
-        Instantiate(explosionPrefabFx, transform.position, transform.rotation);
+        GameObject selectedExplosion = Random.value < megaExplosionProbability
+            ? megaExplosionPrefabFx
+            : explosionPrefabFx;
+
+        Instantiate(selectedExplosion, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 }

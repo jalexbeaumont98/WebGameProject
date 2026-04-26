@@ -19,31 +19,25 @@ public class ShooterController : MonoBehaviour
     [Header("Optional")]
     [SerializeField] private Rigidbody ownerRb; // player rb for inherited velocity (feels good)
 
-    [Header("Bomb")]
-    [SerializeField] private GameObject bombPrefab;
 
     private InputAction fireAction;
-    private InputAction dropBombAction;
     private float nextFireTime;
 
     private void Awake()
     {
         if (playerInput == null) playerInput = GetComponentInParent<PlayerInput>();
         fireAction = playerInput.actions["Attack"]; // ensure Fire exists in TPS map
-        dropBombAction = playerInput.actions["DropBomb"];
     }
 
     private void OnEnable()
     {
         fireAction.performed += OnFire;
-        dropBombAction.performed += OnDropBomb;
         fireAction.Enable();
     }
 
     private void OnDisable()
     {
         fireAction.performed -= OnFire;
-        dropBombAction.performed -= OnDropBomb;
         fireAction.Disable();
     }
 
@@ -93,11 +87,4 @@ public class ShooterController : MonoBehaviour
 
         projRb.linearVelocity = vel;
     }
-
-    private void OnDropBomb(InputAction.CallbackContext _)
-    {
-        if (bombPrefab == null) return;
-        Instantiate(bombPrefab, transform.position, transform.rotation);
-    }
-
 }

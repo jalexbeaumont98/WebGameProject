@@ -4937,6 +4937,7 @@ GameObject:
   - component: {fileID: 845154808}
   - component: {fileID: 845154816}
   - component: {fileID: 845154818}
+  - component: {fileID: 845154819}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -5220,6 +5221,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 1072eb87-fac8-4aa5-8dcd-188ecd152151
     m_ActionName: 'TPS/DropBomb[/Keyboard/r]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c6c4ffeb-b614-43cf-87e7-c17af1ec8677
+    m_ActionName: 'Rolling/DropBomb[/Keyboard/r]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Rolling
@@ -5247,7 +5252,6 @@ MonoBehaviour:
   projectileSpeed: 50
   fireCooldown: 0.15
   ownerRb: {fileID: 845154803}
-  bombPrefab: {fileID: 4577861460560557521, guid: 77944e513bf819b4086c42b98332c0f4, type: 3}
 --- !u!114 &845154810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5389,6 +5393,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9584b6bc9520d967baf6934f50a3df18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInventoryController
+--- !u!114 &845154819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845154801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f1ef16b0d89b050386c127f7e98595f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerBombController
+  playerInput: {fileID: 0}
+  bombPrefab: {fileID: 4577861460560557521, guid: 77944e513bf819b4086c42b98332c0f4, type: 3}
 --- !u!1 &969343205 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6275731577522052483, guid: 8f5ecb99eeac0ff47bfe90017b4db2ec, type: 3}
