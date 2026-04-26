@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public enum SoundType
 {
     None,
@@ -10,4 +8,6 @@ public enum SoundType
     Explosion,
     BulletCollision,
     AchievementUnlocked,
+    DrinkPotion,
+    ItemPickup
 }
