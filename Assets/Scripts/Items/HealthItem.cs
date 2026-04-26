@@ -1,6 +1,7 @@
 using UnityEngine;
 
 // Heals the player instantly when they touch this health item
+// If the player is at full health, the health pack is added to their inventory.
 public class HealthItem : MonoBehaviour
 {
     [SerializeField] int amount;

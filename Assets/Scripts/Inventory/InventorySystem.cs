@@ -1,3 +1,4 @@
+using UnityEngine;
 using System;
 
 public class InventorySystem : PersistenceSingleton<InventorySystem>
@@ -5,8 +6,8 @@ public class InventorySystem : PersistenceSingleton<InventorySystem>
     public event Action<int> OnHealthPackCountChanged; // This is used by the PlayerUIHandler/Manager to update the inventory
     public event Action<int> OnBombCountChanged; 
 
-    private readonly int maxHealthPackCount = 3; // Maximum allowable number of health packs
-    private readonly int maxBombCount = 20; 
+    [SerializeField] private int maxHealthPackCount = 3; // Maximum allowable number of health packs
+    [SerializeField] private int maxBombCount = 50; 
 
     private int _healthPacks;
     private int _bombs;
@@ -14,7 +15,7 @@ public class InventorySystem : PersistenceSingleton<InventorySystem>
     private void Start()
     {
         _healthPacks = 0;
-        _bombs = maxBombCount;
+        _bombs = 20;
         OnHealthPackCountChanged?.Invoke(_healthPacks);
         OnBombCountChanged?.Invoke(_bombs);
     }
