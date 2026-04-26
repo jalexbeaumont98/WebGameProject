@@ -1,7 +1,13 @@
 using UnityEngine;
+using System;
 
 public class AchievementSystemB : MonoBehaviour
 {
+
+    public event Action<string> OnAchievementUnlocked; 
+    // public event Action<string> OnBulletsFiredAchievementUnlocked; 
+    // public event Action<string> OnDamageDealtAchievementUnlocked; 
+
     [SerializeField] private EnemyDefeatedEventChannel enemyDefeatedChannel;
     [SerializeField] private BulletsFiredEventChannel bulletsFiredChannel;
     [SerializeField] private DamageDealtEventChannel damageDealtChannel;
@@ -34,7 +40,8 @@ public class AchievementSystemB : MonoBehaviour
         _currentEnemiesDefeated++;
         if (_currentEnemiesDefeated == achievementEnemiesDefeated)
         {
-            Debug.Log("Achievement Unlocked: " + _currentEnemiesDefeated + " enemies were defeated.");
+            Debug.Log("Achievement Unlocked:\n" + _currentEnemiesDefeated + " enemies were defeated.");
+            OnAchievementUnlocked?.Invoke(_currentEnemiesDefeated + " enemies were defeated.");
             AudioManager.Instance.PlayUIOneShot(SoundType.AchievementUnlocked);
         }
     }
@@ -45,6 +52,7 @@ public class AchievementSystemB : MonoBehaviour
         if (_currentBulletsFired == achievementBulletsFired)
         {
             Debug.Log("Achievement Unlocked: " + _currentBulletsFired + " bullets were fired.");
+            OnAchievementUnlocked?.Invoke(_currentBulletsFired + " bullets were fired.");
             AudioManager.Instance.PlayUIOneShot(SoundType.AchievementUnlocked);
         }
     }
@@ -55,6 +63,7 @@ public class AchievementSystemB : MonoBehaviour
         if (_currentDamageDealt == achievementDamageDealt)
         {
             Debug.Log("Achievement Unlocked: " + _currentDamageDealt + " damage dealt.");
+            OnAchievementUnlocked?.Invoke(_currentDamageDealt + " damage dealt.");
             AudioManager.Instance.PlayUIOneShot(SoundType.AchievementUnlocked);
         }
     }
