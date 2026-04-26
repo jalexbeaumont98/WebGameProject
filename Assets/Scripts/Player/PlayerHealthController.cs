@@ -53,6 +53,7 @@ public class PlayerHealthController : MonoBehaviour, IDamageable, IHealable
             int previousHealth = _currentHealth;
             _currentHealth = Mathf.Clamp(_currentHealth + amount, 0, maxHealth);
             OnHealthChanged?.Invoke(_currentHealth, maxHealth); 
+            AudioManager.Instance.PlayOneShot(SoundType.DrinkPotion);
         }
     }
 

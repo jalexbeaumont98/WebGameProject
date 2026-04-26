@@ -5,7 +5,11 @@ public class PlayerInventoryController : MonoBehaviour, ICollector
 {
     public void Collect(ItemType itemType)
     {
-        InventorySystem.Instance.Add(itemType);
+        if (CanCollect(itemType))
+        {
+            InventorySystem.Instance.Add(itemType);
+            AudioManager.Instance.PlayOneShot(SoundType.ItemPickup);
+        }
     }
 
     public bool CanCollect(ItemType itemType)
