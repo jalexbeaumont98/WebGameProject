@@ -1347,11 +1347,33 @@
                 },
                 {
                     "name": "",
+                    "id": "5e69c254-806e-40f6-8f94-06194b9306ad",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "DropBomb",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "22265cab-4f42-4756-af4d-da5d3e12d43e",
                     "path": "<Keyboard>/1",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
+                    "action": "UseHeal",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "84d6a50b-ab9f-465a-b236-4df2c4d621dc",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
                     "action": "UseHeal",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -1768,11 +1790,33 @@
                 },
                 {
                     "name": "",
+                    "id": "73284c0f-4c04-42fd-a1b3-3ab9816df07b",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "DropBomb",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "a50b0f05-e56e-4718-ae36-f596ef1f8c76",
                     "path": "<Keyboard>/1",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
+                    "action": "UseHeal",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2a4870f3-4ecf-418f-9a4d-e9b7bf4bfb1e",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
                     "action": "UseHeal",
                     "isComposite": false,
                     "isPartOfComposite": false
